@@ -50,7 +50,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   auth: {
     user: 'apikey', // Esto es literal, no se cambia
-    pass: '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' // Aquí va tu API Key de SendGrid
+    pass: process.env.SENDGRID_API_KEY // La API Key se lee desde las variables de entorno
   }
 });
 
