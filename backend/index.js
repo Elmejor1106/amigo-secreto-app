@@ -58,18 +58,17 @@ async function sendEmails(assignments, budget, exchangeDate, message) {
   for (const assignment of assignments) {
     const { giver, receiver } = assignment;
 
-    const subject = '🎁 ¡Tu Amigo Secreto ha sido asignado!';
+    const subject = '🎁 ¡Tu Pariente Secreto ha sido asignado!';
     const body = `
-      Hola ${giver.name},
+      Hola ${giver.name}, el nombre de tu pariente secreto es: ${receiver.name}
 
-      ¡El sorteo del Amigo Secreto ha finalizado!
+    Recuerda el valor del regalo es de minimo ${budget || 'No especificado'}, no seas tacañin. La fecha es ${exchangeDate || 'No especificada'}
 
-      Te ha tocado regalarle a: **${receiver.name}**
-
-      Aquí están los detalles del evento:
-      - **Fecha del intercambio:** ${exchangeDate || 'No especificada'}
-      - **Presupuesto sugerido:** ${budget || 'No especificado'}
       
+
+      
+
+    
       ${message ? `**Mensaje adicional:** 
 ${message}` : ''}
 
