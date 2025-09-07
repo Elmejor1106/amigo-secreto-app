@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno (si los usas en el futuro)
+.env
+sendgrid.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build de producción del frontend
+/frontend/build
