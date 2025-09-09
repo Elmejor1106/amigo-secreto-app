@@ -76,7 +76,7 @@ ${message ? `💌
 ¡Diviértete escogiendo ese regalo que hará sonreír a tu Pariente Secreto! 🎊🎄  
 
 ──────────────────────────────  
-📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver.
+📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver©.
 `;
 
 
