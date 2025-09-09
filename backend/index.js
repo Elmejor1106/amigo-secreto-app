@@ -77,12 +77,12 @@ ${message ? `💌
 
 <br><br>
 <!-- Aquí va la imagen linkeada -->
-<a href="https://tusitio.com/intercambio" target="_blank">
+
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Christmas_star_icon.png/240px-Christmas_star_icon.png" 
        alt="Imagen Pariente Secreto" 
        width="200" 
        style="border-radius:15px; margin-top:15px;" />
-</a>
+
 
 <br><br>
 ──────────────────────────────  
