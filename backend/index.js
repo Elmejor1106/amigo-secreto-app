@@ -61,7 +61,7 @@ async function sendEmails(assignments, budget, exchangeDate, message) {
 const subject = '🎁✨ ¡Tu Pariente Secreto ha sido revelado!';
 
 const body = `
-🌟 Hola ${giver.name},
+🌟 Hola ${giver.name},  
 
 Con mucha alegría te contamos que tu Pariente Secreto es: 🎀 ${receiver.name} 🎀  
 
@@ -69,14 +69,24 @@ Con mucha alegría te contamos que tu Pariente Secreto es: 🎀 ${receiver.name}
 - 💰 El valor mínimo del regalo es de ${budget || 'No especificado'} (no caigas en la tentación de ser tacañín 😅).  
 - 📅 La fecha especial del intercambio será el día: ${exchangeDate || 'No especificada'}.  
 
-${message ? `💌 
-"${message}"` : ''}
+${message ? `💌  
+"${message}"` : ''}  
 
 ✨ Prepárate para vivir un momento único, lleno de unión y alegría.  
 ¡Diviértete escogiendo ese regalo que hará sonreír a tu Pariente Secreto! 🎊🎄  
 
+<br><br>
+<!-- Aquí va la imagen linkeada -->
+<a href="https://tusitio.com/intercambio" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Christmas_star_icon.png/240px-Christmas_star_icon.png" 
+       alt="Imagen Pariente Secreto" 
+       width="200" 
+       style="border-radius:15px; margin-top:15px;" />
+</a>
+
+<br><br>
 ──────────────────────────────  
-📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver©.
+📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver©
 `;
 
 
