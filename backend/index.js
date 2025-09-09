@@ -58,22 +58,27 @@ async function sendEmails(assignments, budget, exchangeDate, message) {
   for (const assignment of assignments) {
     const { giver, receiver } = assignment;
 
-    const subject = '🎁 ¡Tu Pariente Secreto ha sido asignado!';
-    const body = `
-      Hola ${giver.name}, el nombre de tu pariente secreto es: ${receiver.name}
+const subject = '🎁✨ ¡Tu Pariente Secreto ha sido revelado!';
 
-    Recuerda el valor del regalo es de minimo ${budget || 'No especificado'}, no seas tacañin. La fecha es ${exchangeDate || 'No especificada'}
+const body = `
+🌟 Hola ${giver.name},
 
-      
+Con mucha alegría te contamos que tu Pariente Secreto es: 🎀 ${receiver.name} 🎀  
 
-      
+📌 Recuerda:  
+- 💰 El valor mínimo del regalo es de ${budget || 'No especificado'} (no caigas en la tentación de ser tacañín 😅).  
+- 📅 La fecha especial del intercambio será el día: ${exchangeDate || 'No especificada'}.  
 
-    
-      ${message ? `**Mensaje adicional:** 
-${message}` : ''}
+${message ? `💌 
+"${message}"` : ''}
 
-      ¡Que te diviertas buscando el regalo perfecto!
-    `;
+✨ Prepárate para vivir un momento único, lleno de unión y alegría.  
+¡Diviértete escogiendo ese regalo que hará sonreír a tu Pariente Secreto! 🎊🎄  
+
+──────────────────────────────  
+📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver.
+`;
+
 
     const mailOptions = {
       from: 'Amigo Secreto App <juandavidduranmalaver@gmail.com>', // <-- REEMPLAZA ESTO
