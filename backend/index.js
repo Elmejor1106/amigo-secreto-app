@@ -76,14 +76,7 @@ ${message ? `💌
 ¡Diviértete escogiendo ese regalo que hará sonreír a tu Pariente Secreto! 🎊🎄  
 
 <br><br>
-<!-- Aquí va la imagen linkeada -->
-
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Christmas_star_icon.png/240px-Christmas_star_icon.png" 
-       alt="Imagen Pariente Secreto" 
-       width="200" 
-       style="border-radius:15px; margin-top:15px;" />
-
-
+<img src="cid:familiaimg" alt="Imagen Pariente Secreto" width="200" style="border-radius:15px; margin-top:15px;" />
 <br><br>
 ──────────────────────────────  
 📌 Mensaje generado por un sistema creado con dedicación por Juan David Durán Malaver©
@@ -91,10 +84,17 @@ ${message ? `💌
 
 
     const mailOptions = {
-      from: 'Amigo Secreto App <juandavidduranmalaver@gmail.com>', // <-- REEMPLAZA ESTO
+      from: 'Amigo Secreto App <juandavidduranmalaver@gmail.com>',
       to: giver.email,
       subject: subject,
-      html: body.replace(/\n/g, '<br>') // Reemplazar saltos de línea por <br> para el formato HTML
+      html: body.replace(/\n/g, '<br>'),
+      attachments: [
+        {
+          filename: 'familia.png',
+          path: __dirname + '/assets/familia.png',
+          cid: 'familiaimg' // Content-ID único
+        }
+      ]
     };
 
     // Enviar el correo
