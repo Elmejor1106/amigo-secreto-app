@@ -107,6 +107,7 @@ function performSecretSantaDraw(participants, restrictions) {
   let assignments = [];
   let attempts = 0;
 
+
   while (attempts < 100) { // Límite de intentos para evitar bucles infinitos
     let shuffledReceivers = [...participants].sort(() => Math.random() - 0.5);
     let possible = true;
@@ -123,27 +124,34 @@ function performSecretSantaDraw(participants, restrictions) {
         // 3. No debe violar ninguna restricción.
         const isSelf = giver.id === receiver.id;
         const isTaken = assignments.some(a => a.receiver.id === receiver.id);
-        const isRestricted = restrictions.some(r => 
-            (r.person1 === giver.id && r.person2 === receiver.id) || 
-            (r.person1 === receiver.id && r.person2 === giver.id)
-        );
+        const isRestricted = restrictions.some(r => {
+          const restr = (r.person1 === giver.id && r.person2 === receiver.id) || (r.person1 === receiver.id && r.person2 === giver.id);
+          if (restr) {
+            console.log(`Restricción aplicada: ${giver.name} (${giver.id}) no puede con ${receiver.name} (${receiver.id})`);
+          }
+          return restr;
+        });
 
         if (!isSelf && !isTaken && !isRestricted) {
           assignments.push({ giver, receiver });
           shuffledReceivers.splice(i, 1); // Quitar al receptor de la lista de disponibles
           receiverFound = true;
           break;
+        } else {
+          if (isSelf) console.log(`No puede asignarse a sí mismo: ${giver.name}`);
+          if (isTaken) console.log(`Receptor ya asignado: ${receiver.name}`);
         }
       }
 
       if (!receiverFound) {
         possible = false;
+        console.log(`No se encontró receptor válido para ${giver.name} (${giver.id})`);
         break; // Romper el bucle de 'givers' y reintentar el sorteo
       }
     }
 
     if (possible) {
-      // console.log('Asignaciones exitosas:', assignments.map(a => `${a.giver.name} -> ${a.receiver.name}`));
+      console.log('Asignaciones exitosas:', assignments.map(a => `${a.giver.name} -> ${a.receiver.name}`));
       return assignments; // Sorteo exitoso
     }
 
